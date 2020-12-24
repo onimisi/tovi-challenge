@@ -6,11 +6,10 @@ function getAllRecipes(req, res) {
 
 function addNewRecipe(req, res) {
   if (!req.body.name || !req.body.instructions || !req.body.ingredients) {
-    res.status(400).json({
+    return res.status(400).json({
       error: 'POST body must contain all requiredProperties',
       requiredProperties: ['name', 'instructions', 'ingredients'],
     });
-    return;
   }
 
   const newRecipe = {
@@ -21,13 +20,32 @@ function addNewRecipe(req, res) {
   res.status(201).json(recipes.add(newRecipe));
 }
 
-/** TODO */
 function deleteRecipe(req, res) {
-  res.json(recipes.remove(req.params.id));
+  const result = recipes.removeRecipe(req.params.id);
+  if (!result) {
+    return res.status(400).json({
+      error: `can't delete the recipe with id ${req.params.id} because it doesn't exist`,
+    });
+  }
+  res.json(result);
 }
 
-/** TODO */
-function updateRecipe() {}
+function updateRecipe(req, res) {
+  if (!Object.keys(req.body).length) {
+    return res.status(400).json({
+      error: 'UPDATE must contain a body',
+      optionalProperties: ['name', 'instructions', 'ingredients'],
+    });
+  }
+  const result = recipes.updateRecipe(req.params.id, req.body);
+
+  if (!result) {
+    return res.status(400).json({
+      error: `can't update the recipe with id ${req.params.id} because it doesn't exist`,
+    });
+  }
+  res.json(result);
+}
 
 module.exports = {
   getAllRecipes,

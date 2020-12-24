@@ -11,7 +11,7 @@ router.post('/', recipesController.addNewRecipe);
 // DELETE /recipes/
 router.delete('/:id', recipesController.deleteRecipe);
 
-/** TODO */
 // UPDATE /recipes/
+router.put('/:id', recipesController.updateRecipe);
 
 module.exports = router;

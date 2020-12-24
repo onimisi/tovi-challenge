@@ -28,12 +28,35 @@ function add(data) {
   return recipe;
 }
 
-function remove(id) {
+function removeRecipe(id) {
   const recipesArr = list();
-  const recipeIndex = recipesArr.findIndex((recipe) => recipe.id === id);
+  const recipeIndex = recipesArr.findIndex(
+    (recipe) => recipe.id === parseInt(id)
+  );
+  if (recipeIndex === -1) {
+    return false;
+  }
   recipesArr.splice(recipeIndex, 1);
   fs.writeFileSync(recipesFile, JSON.stringify(recipesArr));
   return recipesArr;
 }
 
-module.exports = { list, add, remove };
+function updateRecipe(id, data) {
+  const recipesArr = list();
+  const recipeIndex = recipesArr.findIndex(
+    (recipe) => recipe.id === parseInt(id)
+  );
+  if (recipeIndex === -1) {
+    return false;
+  }
+  recipesArr.splice(recipeIndex, 1, {
+    id: parseInt(id),
+    name: data.name,
+    instructions: data.instructions,
+    ingredients: data.ingredients,
+  });
+  fs.writeFileSync(recipesFile, JSON.stringify(recipesArr));
+  return recipesArr;
+}
+
+module.exports = { list, add, removeRecipe, updateRecipe };
