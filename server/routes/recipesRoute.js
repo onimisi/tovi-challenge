@@ -8,8 +8,8 @@ router.get('/', recipesController.getAllRecipes);
 // POST /recipes/
 router.post('/', recipesController.addNewRecipe);
 
-/** TODO */
 // DELETE /recipes/
+router.delete('/:id', recipesController.deleteRecipe);
 
 /** TODO */
 // UPDATE /recipes/

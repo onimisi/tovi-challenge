@@ -1,6 +1,6 @@
 const recipes = require('../models/recipesModel.js');
 
-function getAllRecipes(_req, res) {
+function getAllRecipes(req, res) {
   res.status(200).json(recipes.list());
 }
 
@@ -22,7 +22,9 @@ function addNewRecipe(req, res) {
 }
 
 /** TODO */
-function removeRecipe() {}
+function deleteRecipe(req, res) {
+  res.json(recipes.remove(req.params.id));
+}
 
 /** TODO */
 function updateRecipe() {}
@@ -30,6 +32,6 @@ function updateRecipe() {}
 module.exports = {
   getAllRecipes,
   addNewRecipe,
-  removeRecipe,
+  deleteRecipe,
   updateRecipe,
 };

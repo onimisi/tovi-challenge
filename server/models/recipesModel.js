@@ -28,4 +28,12 @@ function add(data) {
   return recipe;
 }
 
-module.exports = { list, add };
+function remove(id) {
+  const recipesArr = list();
+  const recipeIndex = recipesArr.findIndex((recipe) => recipe.id === id);
+  recipesArr.splice(recipeIndex, 1);
+  fs.writeFileSync(recipesFile, JSON.stringify(recipesArr));
+  return recipesArr;
+}
+
+module.exports = { list, add, remove };
