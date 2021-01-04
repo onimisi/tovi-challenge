@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid black;
+  height: 10%;
+  background-color: #faedca;
+}
+
+.header__title {
+  font-weight: 400;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 18%;
+  font-size: 20px;
+}
+
+.count__icon {
+  width: 40px;
+}
+
+.count__pizza,
+.count__burrito {
+  color: #7ebc89;
+  font-size: 25px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.content {
+  padding: 20px;
+}
+
+.content__question {
+  font-size: 40px;
+}
+
+.content__button {
+  background-color: #7ebc89;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+  padding: 0.5rem 1.5rem;
+  color: white;
+}
+
+.nav {
+  height: 10%;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav__item {
+  width: 100%;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.nav__item:first-of-type {
+  border-right: 2px solid black;
+}

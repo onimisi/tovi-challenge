@@ -1,0 +1,28 @@
+.content {
+  height: 50%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: contentAnimation 1s linear forwards;
+  position: relative;
+}
+
+.content__text {
+  font-size: 40px;
+}
+
+.nav__item--active {
+  background-color: #f2c078;
+}
+/* Think about changing this to a transition instead */
+@keyframes contentAnimation {
+  0% {
+    opacity: 0;
+    bottom: -70%;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0%;
+  }
+}

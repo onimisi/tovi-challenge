@@ -1,0 +1,120 @@
+.page {
+  animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.pizza::before {
+  content: '';
+  border: solid 5px rgba(253, 204, 98, 0.685);
+  width: 360px;
+  height: 340px;
+  border-radius: 50%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pizza {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  animation-name: pizzaSize;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.pizza__image {
+  transform: rotate(180deg);
+  width: 300px;
+  animation: pizzaImage 3s linear;
+  animation-delay: 2s;
+  animation-fill-mode: none;
+}
+
+.pizza__text {
+  font-size: 45px;
+  margin: 0;
+  letter-spacing: 2px;
+  animation-name: pizzaText;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-fill-mode: none;
+}
+
+.nav__item--active {
+  background-color: #f2c078;
+}
+
+.pizza__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-name: pizzaContent;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-fill-mode: none;
+}
+
+@keyframes pizzaContent {
+  0% {
+    position: absolute;
+    top: 30px;
+    left: 30%;
+  }
+  100% {
+    position: absolute;
+    top: 10px;
+    left: 70%;
+  }
+}
+
+@keyframes pizzaImage {
+  0% {
+    width: 300px;
+  }
+  25% {
+    width: 250px;
+    transform: rotate(90deg);
+  }
+  50% {
+    width: 150px;
+  }
+  75% {
+    width: 100px;
+  }
+  100% {
+    width: 80px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes pizzaText {
+  0% {
+    font-size: 35px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
+@keyframes pizzaSize {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

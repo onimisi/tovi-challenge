@@ -28,6 +28,12 @@ function add(data) {
   return recipe;
 }
 
+function getRecipe(id) {
+  console.log(id);
+  const recipesArr = list();
+  return recipesArr.find((recipe) => recipe.id === parseInt(id));
+}
+
 function removeRecipe(id) {
   const recipesArr = list();
   const recipeIndex = recipesArr.findIndex(
@@ -59,4 +65,4 @@ function updateRecipe(id, data) {
   return recipesArr;
 }
 
-module.exports = { list, add, removeRecipe, updateRecipe };
+module.exports = { list, add, getRecipe, removeRecipe, updateRecipe };
